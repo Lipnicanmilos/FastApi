@@ -1,0 +1,32 @@
+import subprocess
+import platform
+
+operating_sys = platform.system()
+nas = '192.168.130.110'
+
+def ping(ip):
+    # ping_command = ['ping', ip, '-n', '1'] instead of ping_command = ['ping', ip, '-n 1'] for Windows
+    ping_command = ['ping', ip, '-n', '1'] if operating_sys == 'Windows' else ['ping', ip, '-c 1']
+    shell_needed = True if operating_sys == 'Windows' else False
+
+    ping_output = subprocess.run(ping_command,shell=shell_needed,stdout=subprocess.PIPE)
+    success = ping_output.returncode
+    return True if success == 0 else False
+
+out = ping(nas)
+print(out, nas +'  bcis-APP01.sem.czechtoll.cz')
+print('------------')
+
+nas = '192.168.130.55'
+def ping(ip):
+    # ping_command = ['ping', ip, '-n', '1'] instead of ping_command = ['ping', ip, '-n 1'] for Windows
+    ping_command = ['ping', ip, '-n', '1'] if operating_sys == 'Windows' else ['ping', ip, '-c 1']
+    shell_needed = True if operating_sys == 'Windows' else False
+
+    ping_output = subprocess.run(ping_command,shell=shell_needed,stdout=subprocess.PIPE)
+    success = ping_output.returncode
+    return True if success == 0 else False
+
+out = ping(nas)
+print(out, nas +'  acis-APP01.sem.czechtoll.cz')
+print('------------')
