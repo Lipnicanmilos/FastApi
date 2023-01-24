@@ -27,4 +27,4 @@ python main.py
 # doplneny modul ktory treba nainstalovat do suboru a spusteny prikaz
 # pip install -r requirements.txt 
 
-# 2:38 -- 
+# 3:14 operators -- API ROUTES

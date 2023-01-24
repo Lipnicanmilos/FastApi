@@ -26,3 +26,11 @@ engine=create_engine("postgresql://lipnicanmilos:wuym59WqUYTN@ep-wandering-voice
 Base=declarative_base()
 
 SessionLocal=sessionmaker(bind=engine)
+# , autocommit=False, autoflush=False
+
+def get_db():
+    db=SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close
